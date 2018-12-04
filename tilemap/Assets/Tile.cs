@@ -24,7 +24,22 @@ public class Tile {
 	//returns a description of the tile
 	public override string ToString(){
 		if (walkable)
-			return "tile[" + this.x + "," + this.y + "] is walkable.";
+			return "tile[" + this.x + "," + this.y + "] of board "+ board + " is walkable.";
 		return "tile[" + this.x + "," + this.y + "] is not walkable.";
+	}
+
+	public bool IsWalkable(){ return this.walkable; }
+
+	public Board ParentBoard(){ return this.board; }
+
+	public World ParentWorld() { return this.board.ParentWorld(); } 
+
+	public int X(){ return this.x; }
+
+	public int Y(){ return this.y; }
+
+	//returns the x,y coordinates in a Vector2
+	public Vector2 Coordinates(){
+		return new Vector2(this.x, this.y);
 	}
 }
